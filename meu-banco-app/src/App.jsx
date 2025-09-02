@@ -9,7 +9,6 @@ function App() {
   const onSubmit = (data) => {
     const { nomeCliente, dividaAtiva, salario, tempoCliente, bens } = data;
 
-    // Regra 1: Empréstimo Não Autorizado [cite: 77]
     if (dividaAtiva === 'Sim' && tempoCliente === 'Menos de 5 anos' && !bens.includes('Casa/Apto') && !bens.includes('Veiculo')) {
       setResultado({
         status: 'nao_autorizado',
@@ -20,7 +19,6 @@ function App() {
       return;
     }
 
-    // Regra 2: Empréstimo Pré-Aprovado [cite: 78]
     if (dividaAtiva === 'Nao' && tempoCliente === 'Acima de 10 anos' && bens.includes('Casa/Apto') && bens.includes('Veiculo')) {
       const salarioFloat = parseFloat(salario);
       const valorEmprestimo = salarioFloat * 6;
@@ -35,7 +33,6 @@ function App() {
       return;
     }
 
-    // Regra 3: Demais Clientes [cite: 79]
     const salarioFloat = parseFloat(salario);
     const valorEmprestimoPossivel = salarioFloat * 3;
     setResultado({
