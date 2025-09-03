@@ -52,7 +52,6 @@ function App() {
     <div className="container">
       <div className="header">
         <h1>Banco Avenida</h1>
-        <h2>App: Controle de Empréstimos</h2>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
